@@ -1,5 +1,6 @@
 package com.seti.btg.infrastructure.adapter;
 
+import com.seti.btg.application.service.TransactionService;
 import com.seti.btg.domain.constant.ErrorConstant;
 import com.seti.btg.domain.model.Customer;
 import com.seti.btg.domain.model.Fund;
@@ -63,6 +64,8 @@ public class TransactionJpaAdapterTest {
     @Mock
     private EntityManager entityManager;
 
+    private TransactionService transactionService;
+
     @InjectMocks
     private TransactionJpaAdapter transactionJpaAdapter;
 
@@ -77,6 +80,8 @@ public class TransactionJpaAdapterTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+
+        transactionService = new TransactionService();
 
         List<TransactionEntity> transactions = new ArrayList<>();
         HashSet<FundEntity> funds = new HashSet<>();
@@ -291,5 +296,4 @@ public class TransactionJpaAdapterTest {
         verify(emailRepositoryPort, never()).sendNotification(any(), any(), any(), any());
         verify(smsRepositoryPort, never()).sendNotification(any(), any(), any(), any());
     }
-
 }
