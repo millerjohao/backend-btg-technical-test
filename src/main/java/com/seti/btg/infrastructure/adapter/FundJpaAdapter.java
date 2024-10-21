@@ -33,7 +33,6 @@ public class FundJpaAdapter implements FundRepositoryPort {
     @Autowired
     private FundSubscriptionDbMapper fundSubscriptionDbMapper;
 
-
     @Autowired
     private EntityManager entityManager;
 
