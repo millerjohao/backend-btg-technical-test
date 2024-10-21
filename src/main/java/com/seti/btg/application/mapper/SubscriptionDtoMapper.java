@@ -9,5 +9,6 @@ import org.mapstruct.Mapping;
 public interface SubscriptionDtoMapper {
     @Mapping(source = "idCustomer", target = "idCustomer")
     @Mapping(source = "idFund", target = "idFund")
+    @Mapping(source = "amount", target = "amount")
     SubscriptionDto toDto(Subscription domain);
 }

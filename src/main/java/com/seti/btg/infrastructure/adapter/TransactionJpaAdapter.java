@@ -92,6 +92,7 @@ public class TransactionJpaAdapter implements TransactionRepositoryPort {
         subscription.setId(subscriptionId);
         subscription.setCustomer(customer);
         subscription.setFund(fund);
+        subscription.setAmount(transaction.getAmount());
 
         // Guardar la subscripción
         subscriptionRepository.save(subscription);

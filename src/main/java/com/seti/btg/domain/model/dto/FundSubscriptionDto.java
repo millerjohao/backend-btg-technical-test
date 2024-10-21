@@ -1,4 +1,4 @@
-package com.seti.btg.domain.model.request;
+package com.seti.btg.domain.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SubscriptionRequest {
-    private Long idCustomer;
-    private Long idFund;
+public class FundSubscriptionDto {
+    private FundDto fundDto;
     private BigDecimal amount;
 }

@@ -2,7 +2,9 @@ package com.seti.btg.application.service;
 
 import com.seti.btg.application.mapper.FundDtoMapper;
 import com.seti.btg.application.mapper.FundRequestMapper;
+import com.seti.btg.application.mapper.FundSubscriptionDtoMapper;
 import com.seti.btg.application.port.FundPort;
+import com.seti.btg.domain.model.FundSubscription;
 import com.seti.btg.domain.model.dto.FundDto;
 import com.seti.btg.domain.model.request.FundRequest;
 import com.seti.btg.domain.repository.FundRepositoryPort;
@@ -20,7 +22,8 @@ public class FundService implements FundPort {
     private FundRepositoryPort repository;
     @Autowired
     private FundDtoMapper dtoMapper;
-
+    @Autowired
+    private FundSubscriptionDtoMapper fundSubscriptionDtoMapper;
     @Autowired
     private FundRequestMapper requestMapper;
 
@@ -45,5 +48,11 @@ public class FundService implements FundPort {
     public FundDto getFundById(Long id) {
         var fund = repository.getFundById(id);
         return dtoMapper.toDto(fund);
+    }
+
+    @Override
+    public List<FundSubscription> getFundsByCustomerId(Long customerId) {
+
+        return repository.getFundsByCustomerId(customerId);
     }
 }

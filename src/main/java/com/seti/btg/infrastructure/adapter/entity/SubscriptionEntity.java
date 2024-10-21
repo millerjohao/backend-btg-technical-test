@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "customer_fund_subscriptions")
 @AllArgsConstructor
@@ -26,4 +28,7 @@ public class SubscriptionEntity {
     @MapsId("idFund")
     @JoinColumn(name = "id_fund", nullable = false)
     private FundEntity fund;
+
+    @Column(name = "amount", nullable = false)
+    private BigDecimal amount;
 }

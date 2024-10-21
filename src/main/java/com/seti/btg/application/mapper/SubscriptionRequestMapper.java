@@ -9,5 +9,6 @@ import org.mapstruct.Mapping;
 public interface SubscriptionRequestMapper {
     @Mapping(source = "idCustomer", target = "idCustomer")
     @Mapping(source = "idFund", target = "idFund")
+    @Mapping(source = "amount", target = "amount")
     Subscription toDomain(SubscriptionRequest request);
 }
