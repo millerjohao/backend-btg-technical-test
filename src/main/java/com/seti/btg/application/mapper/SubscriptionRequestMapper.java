@@ -1,0 +1,13 @@
+package com.seti.btg.application.mapper;
+
+import com.seti.btg.domain.model.Subscription;
+import com.seti.btg.domain.model.request.SubscriptionRequest;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(componentModel = "spring")
+public interface SubscriptionRequestMapper {
+    @Mapping(source = "idCustomer", target = "idCustomer")
+    @Mapping(source = "idFund", target = "idFund")
+    Subscription toDomain(SubscriptionRequest request);
+}
